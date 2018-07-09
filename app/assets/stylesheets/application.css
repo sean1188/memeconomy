@@ -13,3 +13,139 @@
  *= require_tree .
  *= require_self
  */
+
+@keyframes roll {
+    from {
+        transform: rotateZ(270deg) scaleX(10) scaleY(20);
+        background-color: black;
+    }
+    to {
+        transform: rotateZ(0deg) scaleX(1) scaleY(1);
+    }
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    animation: roll 1.5s;
+}
+
+h1 {
+    font-size: 70px;
+    font-weight: bold;
+}
+
+h1:hover {
+    -webkit-animation: rainbow 1s infinite;
+    -ms-animation: rainbow 1s infinite;
+    animation: rainbow 1s infinite;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+    .wrapper {
+        left: 10%;
+        right: 10%;
+    }
+}
+
+.header,
+.footer {
+    flex: 1;
+    padding: 50px;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+.header a:hover {
+    -webkit-animation: rainbow 1s infinite;
+    -ms-animation: rainbow 1s infinite;
+    animation: rainbow 1s infinite;
+}
+
+.center {
+    flex: 5;
+    text-align: center;
+}
+
+.rainbow {
+    /* Chrome, Safari, Opera */
+    -webkit-animation: rainbow 1s;
+    /* Internet Explorer */
+    -ms-animation: rainbow 1s;
+    /* Standar Syntax */
+    animation: rainbow 1s;
+}
+
+/* Chrome, Safari, Opera */
+
+@-webkit-keyframes rainbow {
+    20% {
+        color: red;
+    }
+    40% {
+        color: yellow;
+    }
+    60% {
+        color: green;
+    }
+    80% {
+        color: blue;
+    }
+    100% {
+        color: orange;
+    }
+}
+
+/* Internet Explorer */
+
+@-ms-keyframes rainbow {
+    20% {
+        color: red;
+    }
+    40% {
+        color: yellow;
+    }
+    60% {
+        color: green;
+    }
+    80% {
+        color: blue;
+    }
+    100% {
+        color: orange;
+    }
+}
+
+/* Standar Syntax */
+
+@keyframes rainbow {
+    5% {
+        color: red;
+    }
+    35% {
+        color: yellow;
+    }
+    65% {
+        color: green;
+    }
+    85% {
+        color: blue;
+    }
+    0% {
+        color: orange;
+    }
+}
