@@ -1,0 +1,18 @@
+body {
+    padding: 10%;
+}
+
+input {
+    border: none;
+    background-color: whitesmoke;
+    padding: 10px;
+}
+
+.field {
+    margin: 10px;
+}
+
+#error_explanation {
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+}
