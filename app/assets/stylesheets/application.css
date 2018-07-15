@@ -26,59 +26,13 @@
 
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    animation: roll 1.5s;
+    animation: roll 0.5s;
 }
 
-h1 {
-    font-size: 70px;
-    font-weight: bold;
-}
+/* DEBUG */
 
-h1:hover {
-    -webkit-animation: rainbow 1s infinite;
-    -ms-animation: rainbow 1s infinite;
-    animation: rainbow 1s infinite;
-}
-
-.wrapper {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    display: flex;
-    flex-direction: column;
-}
-
-@media only screen and (min-width: 600px) {
-    .wrapper {
-        left: 10%;
-        right: 10%;
-    }
-}
-
-.header,
-.footer {
-    flex: 1;
-    padding: 50px;
-}
-
-.header a {
-    text-decoration: none;
-    color: black;
-    font-size: 30px;
-    margin-right: 20px;
-}
-
-.header a:hover {
-    -webkit-animation: rainbow 1s infinite;
-    -ms-animation: rainbow 1s infinite;
-    animation: rainbow 1s infinite;
-}
-
-.center {
-    flex: 5;
-    text-align: center;
+.mark {
+    background-color: red;
 }
 
 .rainbow {

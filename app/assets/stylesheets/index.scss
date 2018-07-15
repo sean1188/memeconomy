@@ -1,3 +1,93 @@
 // Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+    font-size: 70px;
+    font-weight: bold;
+}
+
+h1:hover {
+    -webkit-animation: rainbow 1s infinite;
+    -ms-animation: rainbow 1s infinite;
+    animation: rainbow 1s infinite;
+}
+
+#old-stuff {
+    float: right;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+    .wrapper {
+        left: 10%;
+        right: 10%;
+    }
+}
+
+.header,
+.footer {
+    flex: 1;
+    padding: 50px;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+.header a:hover {
+    -webkit-animation: rainbow 1s infinite;
+    -ms-animation: rainbow 1s infinite;
+    animation: rainbow 1s infinite;
+}
+
+.center {
+    flex: 5;
+}
+
+@-moz-keyframes blinker {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes blinker {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes blinker {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}

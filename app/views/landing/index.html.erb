@@ -1,13 +1,41 @@
 <div class="wrapper">
-<div class= "header">   
-    <a href="/users/sign_in"> Sign In </a>
-    <a href="/users/sign_up"> Sign Up </a>
-    <a href="/articles"> Browse </a>
+<div class= "header row">   
+<div class="navbar col-12">
+<div class="navbar-inner">
+ <ul class="nav">
+  <% if user_signed_in? %>
+  <li>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  </li>
+    <% else %>
+   <li> <a href="/users/sign_in"> Sign In </a></li>
+   <li> <a href="/users/sign_up"> Sign Up </a></li>
+    <% end %>
+   <li> <a href="/feed/index"> Browse </a></li>
+ </ul>
+</div>
+</div>
+<img src ="http://code.divshot.com/geo-bootstrap/img/test/ie_logo.gif">
+<img src ="http://code.divshot.com/geo-bootstrap/img/test/ns_logo.gif">
+<img src ="http://code.divshot.com/geo-bootstrap/img/test/noframes.gif">
+<img src ="http://code.divshot.com/geo-bootstrap/img/test/notepad.gif">
+<div id="old-stuff">
+<img src ="http://code.divshot.com/geo-bootstrap/img/test/yahooweek.gif">
+<img src ="http://code.divshot.com/geo-bootstrap/img/test/community.gif">
+<img src ="http://code.divshot.com/geo-bootstrap/img/test/wabwalk.gif">
+<img src ="http://code.divshot.com/geo-bootstrap/img/test/webtrips.gif">
+</div>
 </div>
 <div class="center">
-<h1 class="rainbow"> memeconomy 📈📊 </h1>
-<h2> spread ur memes </h2>
-<h2 style="color: red">USD 0.27 ▼0.17%</h2>
+<img src="https://i.imgur.com/DktJUwl.gif">
+<h1 class="rainbow">Memeconomy</h1>
+<h2> (securely) spread ur memes. </h2>
+<img src="http://code.divshot.com/geo-bootstrap/img/test/hot.gif">
+<small style="color: red">USD 0.27 ▼0.17%</small>
+<blockquote>
+"People will believe pretty much everything they see on the internet"
+<small>-Abraham Lincoln</small>
+</blockquote>
 </div>
 <div class= "footer">
     <center>SSD module 2018 project (just for fun)</center>
