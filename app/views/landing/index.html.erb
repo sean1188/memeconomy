@@ -1,20 +1,4 @@
-<div class="wrapper">
 <div class= "header row">   
-<div class="navbar col-12">
-<div class="navbar-inner">
- <ul class="nav">
-  <% if user_signed_in? %>
-  <li>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-  </li>
-    <% else %>
-   <li> <a href="/users/sign_in"> Sign In </a></li>
-   <li> <a href="/users/sign_up"> Sign Up </a></li>
-    <% end %>
-   <li> <a href="/feed/index"> Browse </a></li>
- </ul>
-</div>
-</div>
 <img src ="http://code.divshot.com/geo-bootstrap/img/test/ie_logo.gif">
 <img src ="http://code.divshot.com/geo-bootstrap/img/test/ns_logo.gif">
 <img src ="http://code.divshot.com/geo-bootstrap/img/test/noframes.gif">
@@ -39,5 +23,4 @@
 </div>
 <div class= "footer">
     <center>SSD module 2018 project (just for fun)</center>
-</div>
 </div>
