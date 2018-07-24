@@ -23,3 +23,5 @@ module Ssd
     end
   end
 end
+
+require "mini_magick"
