@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.description = permit_post_update[:description]
+    @post.category = permit_post_update[:category]
     if @post.save
       flash[:success] = "Post updated successfully!"
       redirect_to post_path(@post)
@@ -21,6 +22,7 @@ class PostsController < ApplicationController
 
   def index
   	@posts = Post.all
+    @posts = @posts.order('created_at DESC')
   end
 
   def show
@@ -51,11 +53,11 @@ class PostsController < ApplicationController
 
   private
   	def permit_post
-  		params.require(:post).permit(:image, :description, :user_id)
+  		params.require(:post).permit(:image, :description, :category, :user_id)
   	end
 
   private
     def permit_post_update
-      params.require(:post).permit(:description)
+      params.require(:post).permit(:description, :category)
     end
 end

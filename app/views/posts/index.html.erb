@@ -15,6 +15,9 @@
 		    	<p class="card-text">
 		    		<span class="description"> <%= x.description %> </span>
 				</p>
+				<p class="card-text font-italic category">
+					Category: <%= x.category %>
+				</p>
 				<% if x.user_id == current_user.id %>
 					<div class="card-footer">
 						<%= link_to "Edit Post", edit_post_path(x) %>

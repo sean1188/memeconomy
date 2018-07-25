@@ -34,22 +34,27 @@ img {
 	position: relative;
 }
 
-.card-text {
+.card .card-text {
 	max-height: 10vw;
 	overflow-y: auto;
 }
 
-.card-text .description {
+.card .card-text .description {
 	display: block;
 	padding: 1vw 0;
 }
 
-.card-img {
+.card .card-img {
 	max-height: 17vw;
 	overflow-y: hidden;
 }
 
-.card-footer {
+.card .card .category {
+	position: absolute;
+	bottom: 4vw;
+}
+
+.card .card-footer {
 	position: absolute;
 	bottom: 1vw;
 	width: 22vw;
