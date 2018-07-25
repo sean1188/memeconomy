@@ -26,12 +26,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Devise for authentication
 gem 'devise'
-# use carrierwave for file uploads
-gem 'carrierwave', '~> 1.0'
-# use act_as_votable to make posts likable
-gem 'acts_as_votable', '~> 0.11.1'
-# use public_activity to track activity
-gem 'public_activity'
+ 
+gem "cancan"
 
 # Use ActiveStorage variant
  gem 'mini_magick'

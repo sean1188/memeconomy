@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Mock admin
+User.create(
+    :name => 'admin',
+    :email => 'admin@meme.com',
+    :password => 'pass123',
+    :password_confirmation => 'pass123',
+    :role => 'admin',
+    :confirmed_at => DateTime.now
+)

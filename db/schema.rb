@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_07_25_025218) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -65,6 +66,9 @@ ActiveRecord::Schema.define(version: 2018_07_25_025218) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
+=======
+ActiveRecord::Schema.define(version: 2018_07_23_084034) do
+>>>>>>> 1163464e0cc7a22b043eb5024a6f45cf88f8b197
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -83,7 +87,11 @@ ActiveRecord::Schema.define(version: 2018_07_25_025218) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+<<<<<<< HEAD
     t.string "name", default: "", null: false
+=======
+    t.string "role"
+>>>>>>> 1163464e0cc7a22b043eb5024a6f45cf88f8b197
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
