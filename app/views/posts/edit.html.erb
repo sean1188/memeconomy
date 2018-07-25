@@ -1,12 +1,16 @@
-<h2>Update Post</h2>
+<h1>Update Meme</h1>
 
-<%= form_for @post, html: { multipart: true } do |f| %>
-	
-	<%= f.label :description %>
-	<%= f.text_area :description %>
-	<br>
+<div class="container">
+	<%= form_for @post, html: { multipart: true } do |f| %>
+		<%= image_tag url_for(@post.image) %>
 
-	<%= f.hidden_field :user_id, :value => current_user.id %>
+		<div class="form-group py-3">
+			<%= f.label :description %>
+			<%= f.text_area :description, class: "form-control" %>
+		</div>
 
-	<%= f.submit %> 
-<% end %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+
+		<%= f.submit class: "btn btn-primary" %> 
+	<% end %>
+</div>

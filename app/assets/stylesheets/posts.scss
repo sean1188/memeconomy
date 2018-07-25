@@ -2,10 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img {
-	max-width: 500px;
+h1 {
+	padding: 3vw 5vw;	
+	text-align: center;
 }
 
-body {
-	background: black;
+img {
+	max-width: 22vw;
+}
+
+.blue {
+	color: #593196;
+}
+
+.blue:hover {
+	pointer: cursor;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.container form {
+	margin: auto;
+}
+
+.card {
+	position: relative;
+}
+
+.card-text {
+	max-height: 10vw;
+	overflow-y: auto;
+}
+
+.card-text .description {
+	display: block;
+	padding: 1vw 0;
+}
+
+.card-img {
+	max-height: 17vw;
+	overflow-y: hidden;
+}
+
+.card-footer {
+	position: absolute;
+	bottom: 1vw;
+	width: 22vw;
+}
+
+.container.show .card {
+	margin: auto;
 }

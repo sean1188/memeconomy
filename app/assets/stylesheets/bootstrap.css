@@ -4589,7 +4589,8 @@ input[type="button"].btn-block {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-width: 0;
+  width: 25vw;
+  height: 40vw;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
