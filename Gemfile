@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Devise for authentication
 gem 'devise'
  
+gem 'carrierwave', '~> 0.11.2'
+
 gem "cancan"
 
 # Use ActiveStorage variant

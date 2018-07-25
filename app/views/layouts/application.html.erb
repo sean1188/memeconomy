@@ -22,7 +22,7 @@
         <% if user_signed_in? %>
           <li class="nav-item <%= 'active' if (params[:controller] == 'posts' && params[:action] == 'index') %>"> <a href="/posts" class="nav-link"> Browse </a></li>
           <li class="nav-item <%= 'active' if params[:controller] == 'posts' && params[:action] == 'new' %>"> 
-            <%= link_to "New Post", new_post_path, class: "nav-link" %> 
+            <%= link_to "New Meme", new_post_path, class: "nav-link" %> 
           </li>
         <% else %>
           <li class="nav-item <%= 'active' if params[:controller] == 'devise/sessions' && params[:action] == 'new' %>"> <a href="/users/sign_in" class="nav-link"> Sign In </a></li>

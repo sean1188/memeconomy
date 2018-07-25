@@ -1,24 +1,27 @@
-<h1>All Posts</h1>
+<h1>All Memes</h1>
 
-<%= @posts.each do |x| %>
-	<div class="card border-primary mb-3" style="max-width: 20rem;">
-	  	<div class="card-header">
-	  		<span> by <%= x.name %> </span>
-	  		<br>
-			<span> on <%= x.created_at %></span>
-	  	</div>
-	  	<div class="card-body">
-	    	<h4 class="card-title">Primary card title</h4>
-	    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	  	</div>
-	</div>
-	<div class="post">
-		<%= image_tag url_for(x.image) %>
-		<%= x.description %>
-
-		<% if x.user_id == current_user.id %>
-			<%= link_to "Edit Post", edit_post_path(x) %>
-			<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"} %>
-		<% end %>
-	</div>
-<% end %>
+<div class="container p-0">
+	<% @posts.each do |x| %>
+		<div class="card border-primary mb-3 mx-2">
+		  	<div class="card-header">
+		  		<span> by <span class="blue"><%= x.user.name %></span> </span>
+		  		<br>
+				<span> on <%= x.created_at.strftime("%d %B %l:%M %p") %></span>
+		  	</div>
+		  	<div class="card-body">
+		  		<div class="card-img">
+		  			<%= image_tag url_for(x.image) %>
+		  		</div>
+		    	<p class="card-text">
+		    		<span class="description"> <%= x.description %> </span>
+				</p>
+				<% if x.user_id == current_user.id %>
+					<div class="card-footer">
+						<%= link_to "Edit Post", edit_post_path(x) %>
+						<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
+					</div>
+				<% end %>
+		  	</div>
+		</div>
+	<% end %>
+</div>

@@ -1,11 +1,25 @@
-<h1>Posts#show</h1>
+<h1>M3me</h1>
 
-<div class="post">
-	<%= image_tag url_for(@post.image) %>
-	<%= @post.description %>
-
-	<% if @post.user_id == current_user.id %>
-		<%= link_to "Edit Post", edit_post_path(@post) %>
-		<%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
-	<% end %>
+<div class="container show">
+	<div class="card border-primary mb-3">
+		  	<div class="card-header">
+		  		<span> by <span class="blue"><%= @post.user.name %></span> </span>
+		  		<br>
+				<span> on <%= @post.created_at.strftime("%d %B %l:%M %p") %></span>
+		  	</div>
+		  	<div class="card-body">
+		  		<div class="card-img">
+		  			<%= image_tag url_for(@post.image) %>
+		  		</div>
+		    	<p class="card-text">
+		    		<span class="description"> <%= @post.description %> </span>
+				</p>
+				<% if @post.user_id == current_user.id %>
+					<div class="card-footer">
+						<%= link_to "Edit Post", edit_post_path(@post) %>
+						<%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
+					</div>
+				<% end %>
+		  	</div>
+		</div>
 </div>

@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.destroy
       flash[:success] = "Post successfully deleted."
-      redirect_to posts_pathk
+      redirect_to posts_path
     else
       flash[:error] = @post.errors.full_messages
       redirect_to post_path(post)
