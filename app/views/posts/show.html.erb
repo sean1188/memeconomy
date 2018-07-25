@@ -3,4 +3,9 @@
 <div class="post">
 	<%= image_tag url_for(@post.image) %>
 	<%= @post.description %>
+
+	<% if @post.user_id == current_user.id %>
+		<%= link_to "Edit Post", edit_post_path(@post) %>
+		
+	<% end %>
 </div>

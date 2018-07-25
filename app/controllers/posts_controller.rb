@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.description = permit_post_update[:description]
     if @post.save
-      flash[:success] = "Success!"
+      flash[:success] = "Post updated successfully!"
       redirect_to post_path(@post)
     else
       flash[:error] = @post.errors.full_messages
@@ -30,12 +30,24 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(permit_post)
   	if @post.save
-  		flash[:success] = "Success!"
+  		flash[:success] = "Success! New post created."
   		redirect_to post_path(@post)
   	else
   		flash[:error] = @post.errors.full_messages
   		redirect_to new_post_path
   	end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    if @post.save
+      flash[:success] = "Post successfully deleted."
+      redirect_to new_post_path
+    else
+      flash[:error] = @post.errors.full_messages
+      redirect_to post_path(post)
+    end
   end
 
   private
