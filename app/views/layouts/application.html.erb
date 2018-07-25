@@ -5,7 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
-    <%= stylesheet_link_tag params[:controller] %>
+    <% begin %>
+      <%= stylesheet_link_tag params[:controller] %>
+    <% rescue %>
+    <% end %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -21,8 +25,8 @@
             <%= link_to "New Post", new_post_path, class: "nav-link" %> 
           </li>
         <% else %>
-          <li class="nav-item <%= 'active' if params[:controller] == 'sign_in' %>"> <a href="/users/sign_in" class="nav-link"> Sign In </a></li>
-          <li class="nav-item <%= 'active' if params[:controller] == 'sign_up' %>"> <a href="/users/sign_up" class="nav-link"> Sign Up </a></li>
+          <li class="nav-item <%= 'active' if params[:controller] == 'devise/sessions' && params[:action] == 'new' %>"> <a href="/users/sign_in" class="nav-link"> Sign In </a></li>
+          <li class="nav-item <%= 'active' if params[:controller] == 'devise/registrations' && params[:action] == 'new' %>"> <a href="/users/sign_up" class="nav-link"> Sign Up </a></li>
         <% end %>
       </ul>
       <ul style="float: right;" class="nav navbar-nav navbar-right">
