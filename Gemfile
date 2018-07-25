@@ -28,9 +28,18 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
  
 gem "cancan"
+# use carrierwave for file uploads
+gem 'carrierwave', '~> 1.0'
+# use act_as_votable to make posts likable
+gem 'acts_as_votable', '~> 0.11.1'
+# use public_activity to track activity
+gem 'public_activity'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+ gem 'mini_magick'
+
+# to enable variants
+ gem 'image_processing', '~> 1.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -62,3 +71,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# use bootstrap for styling
+gem 'bootstrap-sass', '~> 3.3.7'

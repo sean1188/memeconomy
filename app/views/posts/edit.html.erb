@@ -1,0 +1,12 @@
+<h2>Update Post</h2>
+
+<%= form_for @post, html: { multipart: true } do |f| %>
+	
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+	<br>
+
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+
+	<%= f.submit %> 
+<% end %>

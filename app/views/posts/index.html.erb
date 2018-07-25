@@ -1,0 +1,13 @@
+<h1>Posts#index</h1>
+
+<%= @posts.each do |x| %>
+	<div class="post">
+		<%= image_tag url_for(x.image) %>
+		<%= x.description %>
+
+		<% if x.user_id == current_user.id %>
+			<%= link_to "Edit Post", edit_post_path(x) %>
+			<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"} %>
+		<% end %>
+	</div>
+<% end %>
