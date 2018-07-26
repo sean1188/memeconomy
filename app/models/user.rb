@@ -6,7 +6,7 @@ class User < ApplicationRecord
   attr_accessor :name
 
   def initialise()
-    @role = 'user'
+    self.role ||= 'user'
   end
   
   devise :database_authenticatable, :registerable,
