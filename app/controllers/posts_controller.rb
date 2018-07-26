@@ -11,7 +11,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post updated successfully!"
       redirect_to post_path(@post)
     else
-      flash[:error] = @post.errors.full_messages
+      flash[:error] = "Could not update meme :/ Please try again."
       redirect_to new_post_path
     end
   end
@@ -35,9 +35,10 @@ class PostsController < ApplicationController
   		flash[:success] = "Success! New post created."
   		redirect_to post_path(@post)
   	else
-  		flash[:error] = @post.errors.full_messages
+  		flash[:error] = "Could not create meme :/ Please try again."
   		redirect_to new_post_path
   	end
+    
   end
 
   def destroy
@@ -46,8 +47,8 @@ class PostsController < ApplicationController
       flash[:success] = "Post successfully deleted."
       redirect_to posts_path
     else
-      flash[:error] = @post.errors.full_messages
-      redirect_to post_path(post)
+      flash[:error] = "Could not delete meme :/ Please try again."
+      redirect_to post_path(@post)
     end
   end
 

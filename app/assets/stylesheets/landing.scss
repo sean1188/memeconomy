@@ -1,12 +1,12 @@
 // Place all the styles related to the index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1 {
+.rainbow {
     font-size: 70px !important;
     font-weight: bold;
 }
 
-h1:hover {
+.rainbow:hover {
     -webkit-animation: rainbow 1s infinite;
     -ms-animation: rainbow 1s infinite;
     animation: rainbow 1s infinite;

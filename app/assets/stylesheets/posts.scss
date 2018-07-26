@@ -2,13 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1 {
+h1.heading {
 	padding: 3vw 5vw;	
 	text-align: center;
+	font-size: 2rem;
+	width: 100vw;
 }
 
 img {
-	max-width: 22vw;
+	max-width: 100%;
 }
 
 .blue {
@@ -30,8 +32,9 @@ img {
 	margin: auto;
 }
 
-.card {
+.card.border-primary {
 	position: relative;
+	width: 32%;
 }
 
 .card .card-text {
