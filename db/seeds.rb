@@ -8,10 +8,10 @@
 
 # Mock admin
 User.create(
-    :name => 'admin',
-    :email => 'admin@meme.com',
-    :password => 'pass123',
-    :password_confirmation => 'pass123',
-    :role => 'admin',
-    :confirmed_at => DateTime.now
+    name: 'admin',
+    email: 'admin@meme.com',
+    password: 'pass123',
+    password_confirmation: 'pass123',
+    role: 'admin',
+    confirmed_at: DateTime.now
 )
