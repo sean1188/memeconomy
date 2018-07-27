@@ -21,9 +21,16 @@
         <li class="nav-item <%= 'active' if params[:controller] == 'landing' %>" > <a href="/" class="nav-link"> Home</a></li>
         <% if user_signed_in? %>
           <li class="nav-item <%= 'active' if (params[:controller] == 'posts' && params[:action] == 'index') %>"> <a href="/posts" class="nav-link"> Browse </a></li>
-          <li class="nav-item <%= 'active' if params[:controller] == 'posts' && params[:action] == 'new' %>"> 
-            <%= link_to "New Meme", new_post_path, class: "nav-link" %> 
-          </li>
+          <% if current_user.role != 'admin' %>
+            <li class="nav-item <%= 'active' if params[:controller] == 'posts' && params[:action] == 'new' %>"> 
+              <%= link_to "New Meme", new_post_path, class: "nav-link" %> 
+            </li>
+            <% else %>
+              <li>
+              <%= link_to "Admin", admin_index_path, class:"nav-link" %>
+              </li>
+          <% end %>
+          
         <% else %>
           <li class="nav-item <%= 'active' if params[:controller] == 'devise/sessions' && params[:action] == 'new' %>"> <a href="/users/sign_in" class="nav-link"> Sign In </a></li>
           <li class="nav-item <%= 'active' if params[:controller] == 'devise/registrations' && params[:action] == 'new' %>"> <a href="/users/sign_up" class="nav-link"> Sign Up </a></li>
@@ -32,9 +39,6 @@
       <ul style="float: right;" class="nav navbar-nav navbar-right">
         <li class="nav-item">
           <% if user_signed_in? %>
-          <% if current_user.role == 'admin' %>
-            <%= link_to "Admin", admin_index_path, class:"nav-link" %>
-          <% end %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>        
           <% else %>
           <% end %>

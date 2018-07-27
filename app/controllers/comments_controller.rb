@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
 	end
 
 	def index
-	@comments = @post.comments.order(created_at: :desc)
+		@post = Post.find(params[:comment][:post_id])
+		@comments = @post.comments.order(created_at: :desc)
 	end
 
 	def create
@@ -23,12 +24,16 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-		@comment = @post.comments.find(params[:id])
+		@post = Post.find(params[:comment][:post_id])
+		@comment = @post.comments.find(params[:comment][:comment_id])
 
-		if @comment.user_id == @current_user_id 
-			@comment.destroy
+		if (@comment.user_id == @current_user_id || current_user.role == 'moderator')
+			if @comment.destroy
+				flash[:success] = "Comment deleted!"
+				redirect_to post_path(@post)
+			end
 		else
-			render json: {errors: { comment: ['not owned by user'] } }, status: :forbidden
+			
 		end
 	end
 end
