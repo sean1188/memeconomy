@@ -1,6 +1,6 @@
 <h1>All Memes</h1>
 
-<div class="container p-0">
+<div class="container col-10 p-0">
 	<% @posts.each do |x| %>
 		<div class="card border-primary mb-3 mx-2">
 		  	<div class="card-header">
@@ -15,12 +15,12 @@
 		    	<p class="card-text">
 		    		<span class="description"> <%= x.description %> </span>
 				</p>
-				<% if x.user_id == current_user.id %>
-					<div class="card-footer">
-						<%= link_to "Edit Post", edit_post_path(x) %>
-						<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
-					</div>
-				<% end %>
+					<% if can? :manage, x %>
+						<div class="card-footer">
+							<%= link_to "Edit Post", edit_post_path(x) %>
+							<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
+						</div>
+					<% end %>
 		  	</div>
 		</div>
 	<% end %>
