@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :posts
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   get 'landing/index'
   get 'feed/index'
   get 'admin/index'
