@@ -1,4 +1,4 @@
-<h1>Update Meme</h1>
+<h1 class="heading">Update Meme</h1>
 
 <div class="container">
 	<%= form_for @post, html: { multipart: true } do |f| %>
@@ -7,6 +7,11 @@
 		<div class="form-group py-3">
 			<%= f.label :description %>
 			<%= f.text_area :description, class: "form-control" %>
+		</div>
+
+		<div class="form-group py-3">
+			<%= f.label :category %>
+			<%= select_tag(:category, options_for_select([["Animals", "Animals"], ["Art", "Art"], ["Futuristic", "Futuristic"], ["Politics", "Politics"], ["Vintage", "Vintage"]])) %>
 		</div>
 
 		<%= f.hidden_field :user_id, :value => current_user.id %>

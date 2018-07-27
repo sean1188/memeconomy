@@ -29,10 +29,15 @@ gem 'devise'
 gem "cancan"
 # use carrierwave for file uploads
 gem 'carrierwave', '~> 1.0'
+# use paperclip to allow file upload validation
+gem "paperclip", "~> 6.0.0"
 # use act_as_votable to make posts likable
 gem 'acts_as_votable', '~> 0.11.1'
 # use public_activity to track activity
 gem 'public_activity'
+
+# use audited to log changes to models
+gem "audited", "~> 4.7"
 
 # Use ActiveStorage variant
  gem 'mini_magick'

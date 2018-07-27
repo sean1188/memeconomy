@@ -1,4 +1,4 @@
-<h1>M3me</h1>
+<h1 class="heading">M3me</h1>
 
 <div class="container show">
 	<div class="card border-primary mb-3">
@@ -13,6 +13,9 @@
 		  		</div>
 		    	<p class="card-text">
 		    		<span class="description"> <%= @post.description %> </span>
+				</p>
+				<p class="card-text font-italic category">
+					Category: <%= @post.category %>
 				</p>
 				<% if can? :manage, @post %>
 					<div class="card-footer">

@@ -1,8 +1,8 @@
-<h1>All Memes</h1>
+<h1 class="heading">All Memes</h1>
 
 <div class="container col-10 p-0">
 	<% @posts.each do |x| %>
-		<div class="card border-primary mb-3 mx-2">
+		<div class="card border-primary mb-3 mx-1">
 		  	<div class="card-header">
 		  		<span> by <span class="blue"><%= x.user.name %></span> </span>
 		  		<br>
@@ -14,6 +14,9 @@
 		  		</div>
 		    	<p class="card-text">
 		    		<span class="description"> <%= x.description %> </span>
+				</p>
+				<p class="card-text font-italic category">
+					Category: <%= x.category %>
 				</p>
 					<% if can? :manage, x %>
 						<div class="card-footer">
