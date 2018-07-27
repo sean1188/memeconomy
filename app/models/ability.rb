@@ -6,6 +6,7 @@ class Ability
     user ||= User.new
     can :manage, :all if user.role == 'admin' 
     can %i[destroy update], Post, :user_id => user.id
+    can :delete if user.role == 'moderator'
   end
   
   end

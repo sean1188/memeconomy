@@ -39,8 +39,13 @@ gem 'public_activity'
 # use audited to log changes to models
 gem "audited", "~> 4.7"
 
+gem 'acts_as_commentable'
+
 # Use ActiveStorage variant
  gem 'mini_magick'
+
+# SQLite 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 # to enable variants
  gem 'image_processing', '~> 1.2'
