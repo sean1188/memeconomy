@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+
+
   def new
   	@post = Post.new
   end
@@ -8,7 +10,7 @@ class PostsController < ApplicationController
     @post.description = permit_post_update[:description]
     @post.category = permit_post_update[:category]
     if @post.save
-      flash[:success] = "Post updated successfully!"
+      flash[:error] = "Post updated successfully!"
       redirect_to post_path(@post)
     else
       flash[:error] = "Could not update meme :/ Please try again."
@@ -34,7 +36,7 @@ class PostsController < ApplicationController
   	if @post.save
   		flash[:success] = "Success! New post created."
   		redirect_to post_path(@post)
-  	else
+    else
   		flash[:error] = "Could not create meme :/ Please try again."
   		redirect_to new_post_path
   	end

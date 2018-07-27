@@ -2,7 +2,7 @@
 
 <div class="container">
 	<%= form_for @post, html: { multipart: true } do |f| %>
-		<%= image_tag url_for(@post.image) %>
+		<%= image_tag @post.image.url %>
 
 		<div class="form-group py-3">
 			<%= f.label :description %>
