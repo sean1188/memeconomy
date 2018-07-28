@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :posts
   resources :admin
+  
   resources :comments, only: [:create, :index, :destroy]
   devise_for :users
+
   get 'landing/index'
   get 'feed/index'
   get 'comments/index'

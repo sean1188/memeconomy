@@ -26,11 +26,13 @@
 		    		<div class="list-group">
 		    			<% @comments.each do |c| %>
 		    				<a class="list-group-item">
-		    					<%= form_for @comment, method: :delete do |f| %>
+		    					<%= form_for @comment, url: comment_path(c), method: :delete do |f| %>
 		    						<%= f.hidden_field :comment_id, :value => c.id %>
 		    						<%= f.hidden_field :post_id, :value => x.id %>
 		    						<%= f.submit class: "btn btn-outline-secondary btn-sm float-right" %>
 		    					<% end %>
+		    				<span><%= c.user.name %></span>
+		    				<br>
 		    				<%= c.body %></a>
 		    			<% end %>
 		    		</div>

@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Devise for authentication
 gem 'devise'
- 
+
 gem 'carrierwave', '~> 0.11.2'
 
 gem "cancan"
@@ -74,3 +74,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # use bootstrap for styling
 gem 'bootstrap-sass', '~> 3.3.7'
+
+# two factor auth gem 
+gem 'two_factor_authentication'
