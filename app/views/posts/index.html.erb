@@ -4,7 +4,7 @@
 	<% @posts.each do |x| %>
 		<div class="card border-primary mb-3 mx-2">
 		  	<div class="card-header">
-		  		<span> by <span class="blue"><%= x.user.name %></span> </span>
+		  		<span> by <span class="blue"><%= link_to x.user.name, profile_path(x.user_id)%></span> </span>
 		  		<br>
 				<span> on <%= x.created_at.strftime("%d %B %l:%M %p") %></span>
 		  	</div>

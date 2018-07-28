@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 gem "cancan"
+
+gem 'wdm'
 # use carrierwave for file uploads
 gem 'carrierwave', '~> 1.0'
 # use act_as_votable to make posts likable

@@ -1,0 +1,32 @@
+<h1 class="userprofile-h1">
+	<%= current_user.name %>
+	<%= link_to "Edit Profile", edit_profile_path(current_user.id), class: "editprof" %>
+</h1>
+
+<div class="container">
+	<br><br> 
+	<h3>About Me</h3>
+	<p class="userprofile-p">
+		<%= current_user.about %>
+	</p>
+</div>
+<br><br>
+<div class="container">
+	<h3>Original Memes</h3>
+	<% current_user.posts.each do |post| %>
+		<div class="card border-primary  mb-3">
+		  	<div class="card-header">
+		  		<span><%= post.created_at.strftime("%d %B %l:%M %p") %></span>
+		  	</div>
+		  	<div class="card-body">
+		  		<div class="card-img">
+		  			<%= image_tag url_for(post.image) %>
+		  		</div>
+		  		<br>
+		    	<p class="card-text">
+		    		<span class="description"> <%= post.description %> </span>
+				</p>
+		  	</div>
+		</div>
+	<% end %>
+</div>

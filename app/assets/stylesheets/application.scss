@@ -113,3 +113,34 @@ li {
         color: orange;
     }
 }
+
+/* User Profile */
+.userprofile-h1 {
+    font-size: 350%;
+    text-align: center;
+}
+
+.userprofile-p {
+    font-size: 155%;
+}
+
+.card-img img {
+    max-width: 22.5vw;
+    overflow-y: hidden;
+}
+
+.editprof {
+    font-size: 35%;
+    float: right;
+    margin-top: 20px;
+}
+
+.hone {
+    text-align: center;
+}
+
+.profile-btn {
+    float: bottom right;
+    margin-bottom: 30px;
+    margin-left: 10px;
+}
