@@ -4,13 +4,25 @@
 	<% @posts.each do |x| %>
 		<div class="card border-primary mb-3 mx-1">
 		  	<div class="card-header">
-		  		<span> by <span class="blue"><%= x.user.name %></span> </span>
-		  		<br>
-				<span> on <%= x.created_at.strftime("%d %B %l:%M %p") %></span>
+		  		<span> by <span class="blue"><%= x.user.name %></span> 
+		  		<br>on <%= x.created_at.strftime("%d %B %l:%M %p") %>
+		  		<% if current_user.voted_for? x %>
+	  				<%= link_to dislike_like_path(x), method: :put, class: "float-right like" do %>
+			  			<i class="fas fa-heart"></i>
+	  					<%= x.get_upvotes.size %>
+					<% end %>
+	  			<% else %>
+	  				<%= link_to like_like_path(x), method: :put, class: "float-right like" do %>
+			  			<i class="far fa-heart"></i> 	
+	  					<%= x.get_upvotes.size %>
+					<% end %>
+				<% end %>
+
+		  		</span>
 		  	</div>
 		  	<div class="card-body">
 		  		<div class="card-img">
-		  			<%= image_tag x.image.url %>
+		  			<%= link_to image_tag(x.image.url), post_path(:id => x.id) %>
 		  		</div>
 		    	<p class="card-text">
 		    		<span class="description"> <%= x.description %> </span>

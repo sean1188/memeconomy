@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   audited
   has_many :posts
+  acts_as_voter
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   ROLES = %w[admin moderator user].freeze

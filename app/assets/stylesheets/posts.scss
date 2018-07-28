@@ -52,7 +52,7 @@ img {
 	overflow-y: hidden;
 }
 
-.card .card .category {
+.card .category {
 	position: absolute;
 	bottom: 4vw;
 }
@@ -65,4 +65,10 @@ img {
 
 .container.show .card {
 	margin: auto;
+}
+
+.like {
+	position: absolute;
+	right: 5%;
+	top: 4%;
 }
