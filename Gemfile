@@ -27,7 +27,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "cancan"
 
-gem 'wdm'
 # use carrierwave for file uploads
 gem 'carrierwave', '~> 1.0'
 # for file upload validation
@@ -47,7 +46,6 @@ gem 'acts_as_commentable'
 # Use ActiveStorage variant
  gem 'mini_magick'
 
-# SQLite 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 # to enable variants
@@ -72,6 +70,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # gem 'sqlite3'
+  gem 'brakeman'
 end
 group :production do
   gem 'pg'
