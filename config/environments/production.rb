@@ -63,7 +63,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "ssd_#{Rails.env}"
 
-  config.action_mailer.default_url_options = { host: 'intense-crag-32912.herokuapp.com', port: 3000 }
+  config.action_mailer.default_url_options = { host: ENV['HOST_URL'], port: 3000 }
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true 

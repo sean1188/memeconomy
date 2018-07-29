@@ -33,7 +33,7 @@
 		  	</div>
 		  	<div class="card-body">
 		  		<div class="card-img">
-		  			<%= link_to image_tag(x.image.url), post_path(:id => x.id) %>
+		  			<%= link_to image_tag(x.image), post_path(:id => x.id) %>
 		  		</div>
 		    	<p class="card-text">
 		    		<span class="description"> <%= x.description %> </span>
