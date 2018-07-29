@@ -26,14 +26,17 @@ class CommentsController < ApplicationController
 	def destroy
 		@post = Post.find(params[:comment][:post_id])
 		@comment = @post.comments.find(params[:comment][:comment_id])
+		@user = @comment.user.id
 
-		if (@comment.user_id == @current_user_id || current_user.role == 'moderator')
+		if (@user == current_user.id || current_user.role == 'moderator')
+			@comment.destroy
 			if @comment.destroy
 				flash[:success] = "Comment deleted!"
-				redirect_to post_path(@post)
+				redirect_to posts_path
 			end
 		else
-			
+			flash[:error] = "this comment is not yours"
+			redirect_to posts_path
 		end
 	end
 end

@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-  end
+  end     
 
   def index
   	@posts = Post.all

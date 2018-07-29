@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :admin
+  
   resources :comments, only: [:create, :index, :destroy]
+
   get 'landing/index'
   get 'feed/index'
   get 'admin/index'
