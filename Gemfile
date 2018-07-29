@@ -28,6 +28,8 @@ gem 'devise'
 gem "cancan"
 # use carrierwave for file uploads
 gem 'carrierwave', '~> 1.0'
+# for file upload validation
+gem 'file_validators'
 # use paperclip to allow file upload validation
 gem "paperclip", "~> 6.0.0"
 # use act_as_votable to make posts likable

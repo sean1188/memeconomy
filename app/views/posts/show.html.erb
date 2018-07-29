@@ -1,5 +1,17 @@
 <h1 class="heading">M3me</h1>
 
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this pet from being saved:</h2>
+ 
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <div class="container show">
 	<div class="card border-primary mb-3">
 		  	<div class="card-header">
@@ -9,7 +21,7 @@
 		  	</div>
 		  	<div class="card-body">
 		  		<div class="card-img">
-		  			<%= image_tag url_for(@post.image) %>
+		  			<%= image_tag @post.image.url %>
 		  		</div>
 		    	<p class="card-text">
 		    		<span class="description"> <%= @post.description %> </span>

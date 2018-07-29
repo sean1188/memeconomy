@@ -1,19 +1,25 @@
 class LikesController < ApplicationController
-  before_action :find_likeable
-  before_action :authenticate_user!
-  respond_to :js
+  # def new
+  # end
 
-  def create
-    @likeable.liked_by current_user
-  end
+  # def show
+  # end
 
-  def destroy
-    @likeable.disliked_by current_user
-  end
+  # def update
+  # end
 
-  private
-  def find_likeable
-    @likeable_type = params[:likeable_type].classify
-    @likeable = @likeable_type.constantize.find(params[:likeable_id])
+  # def destroy
+  # end
+
+  def upvote 
+    @post = Post.find(params[:id])
+    @post.upvote_by current_user
+    redirect_to posts_path
+  end  
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.downvote_by current_user
+    redirect_to posts_path
   end
 end
