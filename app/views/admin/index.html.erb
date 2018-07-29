@@ -9,11 +9,13 @@
     </thead>
     <tbody>
       <% @users.each do |u| %>
+       <% if u.role != 'admin' %>
         <tr class="table-info">
           <th scope="row"><%= u.email %></th>
           <td><%= u.role %></td>
           <td><%= link_to "Update Status" , admin_path(u), method: :patch, data: {confirm: "Are you sure?"} %></td>
         </tr>
+      <% end %>
       <% end %>
     </tbody>
   </table> 

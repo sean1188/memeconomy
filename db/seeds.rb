@@ -22,6 +22,7 @@ User.create(
     email: 'user@meme.com',
     password: 'pass123',
     password_confirmation: 'pass123',
+    role: 'user',
     confirmed_at: DateTime.now
 )
 
@@ -30,5 +31,6 @@ User.create(
     email: 'user1@meme.com',
     password: 'pass123',
     password_confirmation: 'pass123',
+    role: 'user',
     confirmed_at: DateTime.now
 )
