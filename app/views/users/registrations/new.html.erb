@@ -1,36 +1,33 @@
-
-  <%= devise_error_messages! %><br>
-<h1>🔥Join us!</h1>
+<h2>Sign up</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
 
-  <div class="field form-group">
-    📬<%= f.label :email%><br />
-    <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
-  <small class="form-text text-muted">We'll never share your email with anyone else. </small>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field form-group">   
-   ✏️<%= f.label :name %><br />
-    <%= f.text_field :name, class: "form-control", :required => true %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
 
-  <div class="field form-group">
-    🔐<%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+  <div class="field">
+    <%= f.label :password %>
     <% if @minimum_password_length %>
-    <small class="form-text text-muted">(<%= @minimum_password_length %> characters is the <strong>🎩 magic</strong> number)</em>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field form-group">
-    🔐<%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-primary"%>
-  </div><br>
-    <div class="field form-group">
-<%= render "users/shared/links" %>
-</div>
+    <%= f.submit "Sign up" %>
+  </div>
 <% end %>
+
+<%= render "users/shared/links" %>

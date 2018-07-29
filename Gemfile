@@ -26,19 +26,22 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Devise for authentication
 gem 'devise'
+# use devise-two-factor for 2FA for moderator accounts
+gem 'devise-two-factor'
+# use rqrcode to generate qr codes for 2FA
+gem 'rqrcode-rails3'
+
+gem 'carrierwave', '~> 0.11.2'
 
 gem "cancan"
 
-gem 'wdm'
-# use carrierwave for file uploads
-gem 'carrierwave', '~> 1.0'
-# use act_as_votable to make posts likable
-gem 'acts_as_votable', '~> 0.11.1'
-# use public_activity to track activity
-gem 'public_activity'
+gem 'acts_as_commentable'
 
 # Use ActiveStorage variant
  gem 'mini_magick'
+
+# SQLite 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 # to enable variants
  gem 'image_processing', '~> 1.2'

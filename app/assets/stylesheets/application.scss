@@ -11,7 +11,8 @@
  * It is generally better to create a new file per style scope.
  */
 
-@import "bootstrap";
+ @import "bootstrap";
+
 @keyframes roll {
     from {
         transform: rotateZ(270deg) scaleX(10) scaleY(20);
@@ -24,19 +25,6 @@
 
 body {
     animation: roll 0.5s;
-    overflow-x: hidden;
-}
-
-#error_explanation {
-    padding: 20px;
-    border: solid 1px red;
-    border-radius: 15px;
-    background-color: rgb(255, 204, 204);
-}
-
-#error_explanation>h2,
-li {
-    font-size: 16px;
 }
 
 /* DEBUG */
@@ -112,35 +100,4 @@ li {
     0% {
         color: orange;
     }
-}
-
-/* User Profile */
-.userprofile-h1 {
-    font-size: 350%;
-    text-align: center;
-}
-
-.userprofile-p {
-    font-size: 155%;
-}
-
-.card-img img {
-    max-width: 22.5vw;
-    overflow-y: hidden;
-}
-
-.editprof {
-    font-size: 35%;
-    float: right;
-    margin-top: 20px;
-}
-
-.hone {
-    text-align: center;
-}
-
-.profile-btn {
-    float: bottom right;
-    margin-bottom: 30px;
-    margin-left: 10px;
 }

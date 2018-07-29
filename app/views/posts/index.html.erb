@@ -4,9 +4,17 @@
 	<% @posts.each do |x| %>
 		<div class="card border-primary mb-3 mx-2">
 		  	<div class="card-header">
-		  		<span> by <span class="blue"><%= link_to x.user.name, profile_path(x.user_id)%></span> </span>
+		  		<span> by <span class="blue"><%= x.user.name %></span> </span>
 		  		<br>
 				<span> on <%= x.created_at.strftime("%d %B %l:%M %p") %></span>
+
+				<% if x.user_id == current_user.id %>
+				<div class="float-right">
+					<%= link_to "Edit Post", edit_post_path(x) %>
+					|
+					<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"} %>
+				</div>
+				<% end %>
 		  	</div>
 		  	<div class="card-body">
 		  		<div class="card-img">
@@ -14,13 +22,29 @@
 		  		</div>
 		    	<p class="card-text">
 		    		<span class="description"> <%= x.description %> </span>
+
+		    		<div class="list-group">
+		    			<% @comments.each do |c| %>
+		    				<a class="list-group-item">
+		    					<%= form_for @comment, url: comment_path(c), method: :delete do |f| %>
+		    						<%= f.hidden_field :comment_id, :value => c.id %>
+		    						<%= f.hidden_field :post_id, :value => x.id %>
+		    						<%= f.submit class: "btn btn-outline-secondary btn-sm float-right" %>
+		    					<% end %>
+		    				<span><%= c.user.name %></span>
+		    				<br>
+		    				<%= c.body %></a>
+		    			<% end %>
+		    		</div>
 				</p>
-				<% if x.user_id == current_user.id %>
-					<div class="card-footer">
-						<%= link_to "Edit Post", edit_post_path(x) %>
-						<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
-					</div>
+				<div class="card-footer">
+				<%= form_for @comment do |f| %>
+					<%= f.text_field :body, class: "form-control mb-2" %>
+					<%= f.hidden_field :post_id, :value => x.id %>
+
+					<%= f.submit class: "btn btn-outline-secondary btn-sm float-right" %>
 				<% end %>
+				</div>
 		  	</div>
 		</div>
 	<% end %>
