@@ -28,7 +28,7 @@
 					<% end %>
 					|
 					<% if can? :delete, x %>
-					<%= link_to "Delete Post", posts_path, method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
+					<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
 					<% end %>
 				</div>
 				<% end %>
