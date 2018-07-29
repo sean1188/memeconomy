@@ -10,15 +10,6 @@ class User < ApplicationRecord
     self.role ||= 'user'
   end
 
-  devise :two_factor_authenticatable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  has_one_time_password(encrypted: true)
-  
-  def send_two_factor_authentication_code(code)
-    # Send code via SMS, etc.
-  end
-
-  def need_two_factor_authentication?(request)
-    self.role != 'user' # i am not sure if this works
-  end
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable  
 end
