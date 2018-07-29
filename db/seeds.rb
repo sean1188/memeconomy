@@ -8,10 +8,27 @@
 
 # Mock admin
 User.create(
-    :name => 'admin',
-    :email => 'admin@meme.com',
-    :password => 'pass123',
-    :password_confirmation => 'pass123',
-    :role => 'admin',
-    :confirmed_at => DateTime.now
+    name: 'admin',
+    email: 'admin@meme.com',
+    password: 'pass123',
+    password_confirmation: 'pass123',
+    role: 'admin',
+    confirmed_at: DateTime.now
+)
+
+# Mock user
+User.create(
+    name: 'memeMaster99',
+    email: 'user@meme.com',
+    password: 'pass123',
+    password_confirmation: 'pass123',
+    confirmed_at: DateTime.now
+)
+
+User.create(
+    name: 'meme machine',
+    email: 'user1@meme.com',
+    password: 'pass123',
+    password_confirmation: 'pass123',
+    confirmed_at: DateTime.now
 )

@@ -29,7 +29,7 @@
 				<p class="card-text font-italic category">
 					Category: <%= @post.category %>
 				</p>
-				<% if @post.user_id == current_user.id %>
+				<% if can? :manage, @post %>
 					<div class="card-footer">
 						<%= link_to "Edit Post", edit_post_path(@post) %>
 						<%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>

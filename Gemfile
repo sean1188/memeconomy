@@ -3,8 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -26,7 +25,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Devise for authentication
 gem 'devise'
-
 gem "cancan"
 # use carrierwave for file uploads
 gem 'carrierwave', '~> 1.0'
@@ -42,8 +40,13 @@ gem 'public_activity'
 # use audited to log changes to models
 gem "audited", "~> 4.7"
 
+gem 'acts_as_commentable'
+
 # Use ActiveStorage variant
  gem 'mini_magick'
+
+# SQLite 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 # to enable variants
  gem 'image_processing', '~> 1.2'
@@ -66,6 +69,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
 end
 group :test do
   # Adds support for Capybara system testing and selenium driver

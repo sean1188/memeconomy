@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+  
+  before_action :authenticate_user!
   def new
   	@post = Post.new
+    @comment = Comment.new
   end
 
   def update
@@ -18,11 +21,13 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-  end
+  end     
 
   def index
   	@posts = Post.all
     @posts = @posts.order('created_at DESC')
+    @comment = Comment.new
+    @comments = Comment.all
   end
 
   def show
