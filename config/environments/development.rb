@@ -32,6 +32,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'intense-crag-32912.herokuapp.com', port: 3000 }
 
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true 
 

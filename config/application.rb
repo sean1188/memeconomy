@@ -24,4 +24,4 @@ module Ssd
   end
 end
 
-require "mini_magick"
+require 'carrierwave/orm/activerecord'

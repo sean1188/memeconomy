@@ -25,17 +25,28 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Devise for authentication
 gem 'devise'
-
 gem "cancan"
 # use carrierwave for file uploads
 gem 'carrierwave', '~> 1.0'
+# for file upload validation
+gem 'file_validators'
+# use paperclip to allow file upload validation
+gem "paperclip", "~> 6.0.0"
 # use act_as_votable to make posts likable
 gem 'acts_as_votable', '~> 0.11.1'
 # use public_activity to track activity
 gem 'public_activity'
 
+# use audited to log changes to models
+gem "audited", "~> 4.7"
+
+gem 'acts_as_commentable'
+
 # Use ActiveStorage variant
  gem 'mini_magick'
+
+# SQLite 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 # to enable variants
  gem 'image_processing', '~> 1.2'
