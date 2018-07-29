@@ -4,7 +4,6 @@
 	<% @posts.each do |x| %>
 		<div class="card border-primary mb-3 mx-1">
 		  	<div class="card-header">
-		  		<span> by <span class="blue"><%= link_to x.user.name, profile_path(x.user_id)%></span> </span>
 		  		<span> by <span class="blue"><%= x.user.name %></span> 
 		  		<br>on <%= x.created_at.strftime("%d %B %l:%M %p") %>
 		  		<% if current_user.voted_for? x %>
@@ -20,15 +19,17 @@
 				<% end %>
 
 		  		</span>
-		  		<span> by <span class="blue"><%= x.user.name %></span> </span>
-		  		<br>
-				<span> on <%= x.created_at.strftime("%d %B %l:%M %p") %></span>
+		  	
 
 				<% if x.user_id == current_user.id %>
 				<div class="float-right">
+				<% if can? :edit, x %>
 					<%= link_to "Edit Post", edit_post_path(x) %>
+					<% end %>
 					|
-					<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"} %>
+					<% if can? :delete, x %>
+					<%= link_to "Delete Post", posts_path, method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
+					<% end %>
 				</div>
 				<% end %>
 		  	</div>
@@ -56,19 +57,18 @@
 				<p class="card-text font-italic category">
 					Category: <%= x.category %>
 				</p>
-					<% if can? :manage, x %>
-						<div class="card-footer">
-							<%= link_to "Edit Post", edit_post_path(x) %>
-							<%= link_to "Delete Post", posts_path, method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
-						</div>
-					<% end %>
+					
 				<div class="card-footer">
 				<%= form_for @comment do |f| %>
 					<%= f.text_field :body, class: "form-control mb-2" %>
 					<%= f.hidden_field :post_id, :value => x.id %>
 
 					<%= f.submit class: "btn btn-outline-secondary btn-sm float-right" %>
+					<br />
 				<% end %>
+				<% if can? :manage, x %>
+					<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
+					<% end %>
 				</div>
 		  	</div>
 		</div>
