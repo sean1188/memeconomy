@@ -1,26 +1,75 @@
-<h1>All Memes</h1>
+<h1 class="heading">All Memes</h1>
 
-<div class="container p-0">
+<div class="container col-10 p-0">
 	<% @posts.each do |x| %>
-		<div class="card border-primary mb-3 mx-2">
+		<div class="card border-primary mb-3 mx-1">
 		  	<div class="card-header">
 		  		<span> by <span class="blue"><%= link_to x.user.name, profile_path(x.user_id)%></span> </span>
+		  		<span> by <span class="blue"><%= x.user.name %></span> 
+		  		<br>on <%= x.created_at.strftime("%d %B %l:%M %p") %>
+		  		<% if current_user.voted_for? x %>
+	  				<%= link_to dislike_like_path(x), method: :put, class: "float-right like" do %>
+			  			<i class="fas fa-heart"></i>
+	  					<%= x.get_upvotes.size %>
+					<% end %>
+	  			<% else %>
+	  				<%= link_to like_like_path(x), method: :put, class: "float-right like" do %>
+			  			<i class="far fa-heart"></i> 	
+	  					<%= x.get_upvotes.size %>
+					<% end %>
+				<% end %>
+
+		  		</span>
+		  		<span> by <span class="blue"><%= x.user.name %></span> </span>
 		  		<br>
 				<span> on <%= x.created_at.strftime("%d %B %l:%M %p") %></span>
+
+				<% if x.user_id == current_user.id %>
+				<div class="float-right">
+					<%= link_to "Edit Post", edit_post_path(x) %>
+					|
+					<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"} %>
+				</div>
+				<% end %>
 		  	</div>
 		  	<div class="card-body">
 		  		<div class="card-img">
-		  			<%= image_tag url_for(x.image) %>
+		  			<%= link_to image_tag(x.image), post_path(:id => x.id) %>
 		  		</div>
 		    	<p class="card-text">
 		    		<span class="description"> <%= x.description %> </span>
+
+		    		<div class="list-group">
+		    			<% @comments.each do |c| %>
+		    				<a class="list-group-item">
+		    					<%= form_for @comment, url: comment_path(c), method: :delete do |f| %>
+		    						<%= f.hidden_field :comment_id, :value => c.id %>
+		    						<%= f.hidden_field :post_id, :value => x.id %>
+		    						<%= f.submit class: "btn btn-outline-secondary btn-sm float-right" %>
+		    					<% end %>
+		    				<span><%= c.user.name %></span>
+		    				<br>
+		    				<%= c.body %></a>
+		    			<% end %>
+		    		</div>
 				</p>
-				<% if x.user_id == current_user.id %>
-					<div class="card-footer">
-						<%= link_to "Edit Post", edit_post_path(x) %>
-						<%= link_to "Delete Post", post_path(x), method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
-					</div>
+				<p class="card-text font-italic category">
+					Category: <%= x.category %>
+				</p>
+					<% if can? :manage, x %>
+						<div class="card-footer">
+							<%= link_to "Edit Post", edit_post_path(x) %>
+							<%= link_to "Delete Post", posts_path, method: :delete, data: {confirm: "Are you sure?"}, class: "float-right" %>
+						</div>
+					<% end %>
+				<div class="card-footer">
+				<%= form_for @comment do |f| %>
+					<%= f.text_field :body, class: "form-control mb-2" %>
+					<%= f.hidden_field :post_id, :value => x.id %>
+
+					<%= f.submit class: "btn btn-outline-secondary btn-sm float-right" %>
 				<% end %>
+				</div>
 		  	</div>
 		</div>
 	<% end %>
