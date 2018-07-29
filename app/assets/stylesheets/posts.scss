@@ -2,13 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1 {
+h1.heading {
 	padding: 3vw 5vw;	
 	text-align: center;
+	font-size: 2rem;
+	width: 100vw;
 }
 
 img {
-	max-width: 22vw;
+	max-width: 100%;
 }
 
 .blue {
@@ -30,29 +32,35 @@ img {
 	margin: auto;
 }
 
-.card {
+.card.border-primary {
 	position: relative;
+	width: 32%;
 }
 
-.card-text {
+.card .card-text {
 	max-height: 10vw;
 	overflow-y: auto;
 }
 
-.card-text .description {
+.card .card-text .description {
 	display: block;
 	padding: 1vw 0;
 }
 
-.card-img {
+.card .card-img {
 	max-height: 17vw;
 	overflow-y: hidden;
 }
 
-.card-footer {
+.card .card .category {
+	position: absolute;
+	bottom: 4vw;
+}
+
+.card .card-footer {
 	position: absolute;
 	bottom: 1vw;
-	width: 22vw;
+	width: 20.5vw;
 }
 
 .container.show .card {
